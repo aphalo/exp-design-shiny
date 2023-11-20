@@ -5,7 +5,7 @@ account: ips-003
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10584236
-bundleId: 7950114
+bundleId: 7950170
 url: https://ips-003.shinyapps.io/design-experiments/
 version: 1
 quarto_version: 1.4.420

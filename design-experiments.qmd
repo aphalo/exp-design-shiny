@@ -12,11 +12,6 @@ server: shiny
 knitr::opts_chunk$set(echo = FALSE, fig.width = 6, fig.height = 5)
 ```
 
-```{r, message=FALSE}
-library(ggplot2)
-library(ggpmisc)
-```
-
 # Simulated experiments
 
 - Generating artificial data by random sampling of a theoretical density distribution, here the Normal distribution, we can simulate different experiments to learn how  outcomes of real experiments depend on how we design them.
@@ -55,7 +50,7 @@ You can also change settings related to how the outcomes of the simulations are 
 - Keep the Treatment effect size and the standard deviation constant.
     * change number of replicates.
 
-```{r}
+```{r, message=FALSE}
 #| context: setup
 library(ggplot2)
 library(ggpmisc)
