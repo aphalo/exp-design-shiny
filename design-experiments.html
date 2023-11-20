@@ -50,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Design of Experiments</h1>
-<p class="subtitle lead">Principles explained</p>
+<p class="subtitle lead">Playing with numbers</p>
 </div>
 
 
@@ -71,6 +71,12 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 20, 2023</p>
+    </div>
+  </div>
     
   </div>
   
@@ -79,217 +85,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introductions" class="level1">
-<h1>Introductions</h1>
-<section id="introductions-who-are-we" class="level2">
-<h2 class="anchored" data-anchor-id="introductions-who-are-we">Introductions: Who are we?</h2>
-<ul>
-<li>Name</li>
-<li>Where you come from</li>
-<li>Field of study</li>
-<li>Why are you interested in the course?</li>
-<li><em>etc.</em></li>
-</ul>
-</section>
-</section>
-<section id="aims-of-design-of-experiments" class="level1">
-<h1>Aims of design of experiments</h1>
-<section id="discussion" class="level2">
-<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<ul>
-<li><p>Why is design of experiments a sub-discipline of Statistics?</p></li>
-<li><p>What do we aim at when we design an experiment?</p></li>
-<li><p>What could be the differences between design and planning of experiments?</p></li>
-<li><p>After this talk, you will design some experiments working in groups.</p></li>
-</ul>
-</section>
-<section id="the-aims-of-design-of-experiments" class="level2">
-<h2 class="anchored" data-anchor-id="the-aims-of-design-of-experiments">The aims of design of experiments</h2>
-<p><strong>Validity</strong></p>
-<ul>
-<li>The assumptions needed for a valid data analysis must be fulfilled.</li>
-</ul>
-<p><strong>Efficiency</strong></p>
-<ul>
-<li>The amount and quality of information obtained with a given effort should be maximized.</li>
-</ul>
-<p><strong>Range of validity</strong></p>
-<ul>
-<li>The data obtained should be representative for the whole scope of intended use of the acquired information (spatial, temporal, genotypic `space’).</li>
-</ul>
-</section>
-<section id="validity-assumptions" class="level2">
-<h2 class="anchored" data-anchor-id="validity-assumptions">Validity: Assumptions</h2>
-<ul>
-<li>Assumptions are never “TRUE”, but they can sometimes be close enough to being fulfilled.</li>
-<li>All data analysis procedures depend on some assumptions.</li>
-<li>Some assumptions are fundamental.</li>
-<li>Additional assumptions may be required by certain procedures for data analysis.</li>
-<li>The fewer assumptions made, the more robust are the conclusions obtained.</li>
-</ul>
-</section>
-<section id="why-is-bias-a-problem" class="level2">
-<h2 class="anchored" data-anchor-id="why-is-bias-a-problem">Why is bias a problem?</h2>
-<ul>
-<li>Bias can be completely confounded with treatment effects.</li>
-<li>It cannot be measured within an experiment and it cannot be diagnosed based on the collected data.</li>
-<li>There is no statistical procedure that can rescue or even identify this problem.</li>
-<li>Bias due to lack of randomization or due to <em>“subjective randomization”</em> or systematic measuring protocols results in <em>biased (bad) data</em> leading to <em>wrong conclusions</em> and <strong>unrepeatable experiments</strong>!</li>
-</ul>
-</section>
-<section id="avoiding-bias" class="level2">
-<h2 class="anchored" data-anchor-id="avoiding-bias">Avoiding bias</h2>
-<ul>
-<li>Randomization of treatment assignment.</li>
-<li>Randomization of measurement sequences.</li>
-<li>Randomization of operator assignment.</li>
-<li>When source of variation is known using restricted randomization (blocks)…</li>
-<li>… or quantifying the external cause of the variation for each observation (covariates).</li>
-</ul>
-</section>
-<section id="detecting-accidental-bias" class="level2">
-<h2 class="anchored" data-anchor-id="detecting-accidental-bias">Detecting accidental bias</h2>
-<ul>
-<li>Most effective way is to have the whole study replicated independently by other labs.</li>
-<li>We can also go quite far by replication in time by same research group if care is taken so that the same “hidden” disturbances are not likely to repeat.</li>
-</ul>
-</section>
-<section id="irreproducibility-of-research-results" class="level2">
-<h2 class="anchored" data-anchor-id="irreproducibility-of-research-results">Irreproducibility of research results</h2>
-<ul>
-<li>Sure ways of compromising reproducibility:
-<ul>
-<li>consider interdependent observations as replicates (“pseudo-replication”),</li>
-<li>add replicates until effects are significant,</li>
-<li>delete apparent outliers until significance is reached (“cherry picking”),</li>
-<li>choose for publication the “best” replicate from a series of replications of an experiment (“cherry picking”),</li>
-<li>not reporting methods in detail, including problems encountered,</li>
-<li>making assumptions that are not tenable or are not validated.</li>
-</ul></li>
-<li>this is because statistical tests and <em>p</em>-values they return are invalidated by bias.</li>
-</ul>
-</section>
-<section id="reproducibility-of-research-results" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility-of-research-results">Reproducibility of research results</h2>
-<ul>
-<li>Good ways of avoiding gross irreproducibility:
-<ul>
-<li>keep in mind that objective decision-making is not automatic.</li>
-<li>avoid “wanting” a certain outcome (not getting in love with an idea).</li>
-<li>use valid designs and protocols in your experiments.</li>
-<li>understand the principles of experimental design and always follow them (avoid short cuts).</li>
-</ul></li>
-</ul>
-</section>
-<section id="real-pseudoreplication-example" class="level2">
-<h2 class="anchored" data-anchor-id="real-pseudoreplication-example">Real pseudoreplication example</h2>
-<p>Two ANOVAs of the same anatomical data. Response is stomatal density. Exciting results with pseudo-replication! (leaves as replicates)</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Effect</th>
-<th style="text-align: right;">Df</th>
-<th style="text-align: right;">Sum Sq</th>
-<th style="text-align: right;">Mean Sq</th>
-<th style="text-align: right;">F value</th>
-<th style="text-align: right;">Pr(&gt;F)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">filter</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">28900</td>
-<td style="text-align: right;">5773</td>
-<td style="text-align: right;">3.14</td>
-<td style="text-align: right;">0.0090</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">block</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">24600</td>
-<td style="text-align: right;">12292</td>
-<td style="text-align: right;">6.69</td>
-<td style="text-align: right;">0.0015</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Residuals</td>
-<td style="text-align: right;"><strong>208</strong></td>
-<td style="text-align: right;">381914</td>
-<td style="text-align: right;">1836</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="real-pseudoreplication-example-1" class="level2">
-<h2 class="anchored" data-anchor-id="real-pseudoreplication-example-1">Real pseudoreplication example</h2>
-<p>Two ANOVAs of the same anatomical data. Response is stomatal density. Boring results with valid analysis! (plots as replicates)</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Effect</th>
-<th style="text-align: right;">Df</th>
-<th style="text-align: right;">Sum Sq</th>
-<th style="text-align: right;">Mean Sq</th>
-<th style="text-align: right;">F value</th>
-<th style="text-align: right;">Pr(&gt;F)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">filter</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">1560</td>
-<td style="text-align: right;">312</td>
-<td style="text-align: right;">0.395</td>
-<td style="text-align: right;">0.84</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">block</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3340</td>
-<td style="text-align: right;">1668</td>
-<td style="text-align: right;">2.106</td>
-<td style="text-align: right;">0.17</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Residuals</td>
-<td style="text-align: right;"><strong>10</strong></td>
-<td style="text-align: right;">7920</td>
-<td style="text-align: right;">792</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
 <section id="simulated-experiments" class="level1">
 <h1>Simulated experiments</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <ul>
-<li>We will use demonstrations that run interactively through a web browser interface.</li>
-<li>Today we will <em>play</em> with simulated experiments.</li>
-<li>Data are simulated by drawing random samples from the Normal distribution.</li>
+<li><p>Generating artificial data by random sampling of a theoretical density distribution, here the Normal distribution, we can simulate different experiments to learn how outcomes of real experiments depend on how we design them.</p></li>
+<li><p>We will use “Apps” that run interactively through a web browser interface, within this page.</p></li>
+<li><p>Today you will learn broad patterns, and we will worry later in the course about the details.</p></li>
+<li><p>The idea is for you to start developing an understanding of how to interpret results from data analysis, as well as of gauging by looking at plot very roughly what to expect.</p></li>
+<li><p>In some cases parameter estimates and results from significance tests are shown. The main point today is not to understand them in detail, but do pay attention how estimates for the values of the parameters vary in succesive simulations sampled using exactly the same settings.</p></li>
 </ul>
 </section>
-<section id="how-do-sampled-data-look-as-population-parameters-change" class="level2">
-<h2 class="anchored" data-anchor-id="how-do-sampled-data-look-as-population-parameters-change">How do sampled data look as population parameters change?</h2>
-<p>In these simulations:</p>
+<section id="how-do-sampled-data-look-as-population-parameters-change" class="level1">
+<h1>1. How do sampled data look as population parameters change?</h1>
+<p>In this App, you can change settings related to the simulated data:</p>
 <ul>
-<li>The mean of the Control distribution is kept at zero.</li>
+<li>The mean of the Control Normal distribution is constant at zero.</li>
 <li>You can choose the value of the mean for Treatment.</li>
-<li>You can choose the value of the standard deviation used.</li>
+<li>You can choose the value of the standard deviation (the same value is used for Control and Treatment).</li>
 <li>You can choose the size of samples (<span class="math inline">\(\approx\)</span> number of replicates).</li>
-<li>The plot shows: simulated observations as rug plots on the <span class="math inline">\(x\)</span> axis, <em>sample</em> empirical distributions and the <em>population</em> means as blue vertical lines.</li>
-<li><strong>To do:</strong> Run the simulation multiple times for each set of values you set for the population parameters.</li>
 </ul>
-</section>
-<section id="simulation-experiment-data" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-experiment-data">Simulation experiment: data</h2>
+<p>You can also change settings related to how the outcomes of the simulations are displayed:</p>
+<ul>
+<li><p>The type of plot:</p>
+<ol type="a">
+<li>“density” shows simulated observations as rug plots on the <span class="math inline">\(x\)</span> axis, fitted <em>sample</em> empirical distributions density functions and the <em>population</em> means (the settings above) as blue vertical lines.</li>
+<li>“histogram” shows histograms instead of the fitted density function.</li>
+</ol></li>
+<li><p>The minimum limits of the x-axis, which makes it easier to compare simulations using different settings for standard deviation.</p></li>
+<li><p><strong>To do:</strong> Run <strong>15</strong> or more simulations with the same settings.</p>
+<ul>
+<li>observe how the sample mean and sd change when you:</li>
+</ul></li>
+<li><p>Keep constant the standard deviation of the populations sampled.</p>
+<ul>
+<li>change the Treatment effect size.</li>
+</ul></li>
+<li><p>Keep the Treatment effect size constant.</p>
+<ul>
+<li>change the standard deviation of the populations sampled.</li>
+</ul></li>
+<li><p>Keep the Treatment effect size and the standard deviation constant.</p>
+<ul>
+<li>change number of replicates.</li>
+</ul></li>
+</ul>
+<div class="cell" data-context="setup">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Hmisc'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    format.pval, units</code></pre>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display no-overflow-x">
 <div class="form-group shiny-input-container">
@@ -303,6 +153,12 @@ ul.task-list li input[type="checkbox"] {
 <option value="100">100</option></select>
 <script type="application/json" data-for="mean_treat" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
 </div>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="sd_adjust-label" for="sd_adjust">Standard deviation:</label>
+<input class="js-range-slider" id="sd_adjust" data-skin="shiny" data-min="0.2" data-max="10" data-from="1" data-step="0.2" data-grid="true" data-grid-num="9.8" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
 </div>
 </div>
 <div class="cell-output-display no-overflow-x">
@@ -319,24 +175,35 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="plot_type-label" for="plot_type">Plot type:</label>
+<div>
+<select id="plot_type" class="shiny-input-select"><option value="density" selected="">density</option>
+<option value="histogram">histogram</option></select>
+<script type="application/json" data-for="plot_type" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
 <div class="cell-output-display">
 <div class="form-group shiny-input-container">
-<label class="control-label" id="sd_adjust-label" for="sd_adjust">Standard deviation:</label>
-<input class="js-range-slider" id="sd_adjust" data-skin="shiny" data-min="0" data-max="10" data-from="1" data-step="0.2" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
+<label class="control-label" id="expand_xlim-label" for="expand_xlim">x-axis minimum limits:</label>
+<input class="js-range-slider" id="expand_xlim" data-skin="shiny" data-min="0" data-max="50" data-from="40" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
 </div>
 </div>
 <div class="cell-output-display">
 <button id="refresh" type="button" class="btn btn-default action-button">New simulation</button>
 </div>
 <div class="cell-output-display">
-<div class="shiny-plot-output html-fill-item" id="samplingPlot" style="width:100%;height:600px;"></div>
+<div class="shiny-plot-output html-fill-item" id="samplingPlot" style="width:100%;height:500px;"></div>
 </div>
 </div>
 </section>
-<section id="sample-summaries-mean-and-standard-deviation" class="level2">
-<h2 class="anchored" data-anchor-id="sample-summaries-mean-and-standard-deviation">Sample summaries (mean and standard deviation)</h2>
+<section id="sample-summaries" class="level1">
+<h1>2. Sample summaries</h1>
+<p>Here you should pay attention to the difference between the mean of the Normal population from which the sample was drawn and the mean estimated from the sample. You should also pay attention to the difference between the standard deviation of the Normal population from which the sample was drawn and the standard deviation estimated from the sample.</p>
 <ul>
-<li><strong>To do:</strong> For each condition run <strong>15</strong> or more simulations.
+<li><strong>To do:</strong> Run <strong>15</strong> or more simulations with the same settings.
 <ul>
 <li>observe how the sample mean and sd change when you:</li>
 </ul></li>
@@ -353,9 +220,7 @@ ul.task-list li input[type="checkbox"] {
 <li>change number of replicates.</li>
 </ul></li>
 </ul>
-</section>
-<section id="simulation-experiment-sample-summaries" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-experiment-sample-summaries">Simulation experiment: sample summaries</h2>
+<p>You can next select to have the <em>t</em>-test shown, and repeat the exercise above paying attention to whether the conclusion you would draw from the <em>t</em>-test vary among simulations done using the same settings.</p>
 <div class="cell">
 <div class="cell-output-display no-overflow-x">
 <div class="form-group shiny-input-container">
@@ -390,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div class="form-group shiny-input-container">
 <label class="control-label" id="sd_adjust1-label" for="sd_adjust1">Standard deviation:</label>
-<input class="js-range-slider" id="sd_adjust1" data-skin="shiny" data-min="0" data-max="10" data-from="1" data-step="0.2" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
+<input class="js-range-slider" id="sd_adjust1" data-skin="shiny" data-min="0.2" data-max="10" data-from="1" data-step="0.2" data-grid="true" data-grid-num="9.8" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
 </div>
 </div>
 <div class="cell-output-display">
@@ -411,27 +276,31 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="simulation-experiment-anova" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-experiment-anova">Simulation experiment: ANOVA</h2>
+<section id="simulation-experiment-anova" class="level1">
+<h1>3. Simulation experiment: ANOVA</h1>
 <ul>
 <li><strong>To do:</strong> For each condition run <strong>15</strong> or more simulations.
 <ul>
 <li>consider if a non-significant <em>p</em>-value demonstrate lack of treatment effect or not.</li>
 </ul></li>
+<li>Keep constant the standard deviation of the populations sampled.
+<ul>
+<li>change the Treatment effect size.</li>
+</ul></li>
 <li>Keep the Treatment effect size constant.
 <ul>
-<li>change number of replicates and see how this affects the <em>p</em>-value and the plotted standard error.</li>
+<li>change number of replicates and see how this affects the <em>p</em>-value and the plotted standard error. (In this case you will need to use different plot types for different numbers of replicates.)</li>
 </ul></li>
 <li>Keep the Treatment effect size constant.
 <ul>
 <li>change the standard deviation of the populations sampled.</li>
 </ul></li>
-<li>What can you conclude from a significant <em>p</em>-value?</li>
+</ul>
+<p><strong>In the plot the error bars show mean plus and minus one standard error.</strong></p>
+<ul>
+<li>What can you conclude from a significant <em>P</em>-value?</li>
 <li>Can you conclude something more than “significant effect”?</li>
 </ul>
-</section>
-<section id="simulation-experiment-anova-1" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-experiment-anova-1">Simulation experiment: ANOVA</h2>
 <div class="cell">
 <div class="cell-output-display no-overflow-x">
 <div class="form-group shiny-input-container">
@@ -466,23 +335,35 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div class="form-group shiny-input-container">
 <label class="control-label" id="sd_adjust2-label" for="sd_adjust2">Standard deviation:</label>
-<input class="js-range-slider" id="sd_adjust2" data-skin="shiny" data-min="0" data-max="10" data-from="1" data-step="0.2" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
+<input class="js-range-slider" id="sd_adjust2" data-skin="shiny" data-min="0.2" data-max="10" data-from="1" data-step="0.2" data-grid="true" data-grid-num="9.8" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
 </div>
 </div>
 <div class="cell-output-display">
 <button id="refresh2" type="button" class="btn btn-default action-button">New simulation</button>
 </div>
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="plot_type2-label" for="plot_type2">Plot type:</label>
+<div>
+<select id="plot_type2" class="shiny-input-select"><option value="dot plot">dot plot</option>
+<option value="violin plot">violin plot</option>
+<option value="beeswarm plot" selected="">beeswarm plot</option>
+<option value="box plot">box plot</option></select>
+<script type="application/json" data-for="plot_type2" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
 <div class="cell-output-display">
-<div class="shiny-plot-output html-fill-item" id="replicationPlot" style="width:100%;height:400px;"></div>
+<div class="shiny-plot-output html-fill-item" id="replicationPlot" style="width:100%;height:500px;"></div>
 </div>
 </div>
 </section>
-<section id="simulation-experiment-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-experiment-linear-regression">Simulation experiment: linear regression</h2>
+<section id="simulation-experiment-linear-regression" class="level1">
+<h1>4. Simulation experiment: linear regression</h1>
 <ul>
 <li><strong>To do:</strong> For each condition run <strong>15</strong> or more simulations.
 <ul>
-<li>observe how statistical significance and <span class="math inline">\(R^2\)</span> very when you:</li>
+<li>observe how statistical significance and <span class="math inline">\(R^2\)</span> vary when you:</li>
 </ul></li>
 <li>Keep constant the standard deviation of the populations sampled.
 <ul>
@@ -498,19 +379,18 @@ ul.task-list li input[type="checkbox"] {
 <li>change number of replicates.</li>
 </ul></li>
 </ul>
-</section>
-<section id="simulation-experiment-linear-regression-1" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-experiment-linear-regression-1">Simulation experiment: linear regression</h2>
 <div class="cell">
 <div class="cell-output-display no-overflow-x">
 <div class="form-group shiny-input-container">
 <label class="control-label" id="num_intercept4-label" for="num_intercept4">Intercept:</label>
 <div>
-<select id="num_intercept4" class="shiny-input-select"><option value="-1">-1</option>
+<select id="num_intercept4" class="shiny-input-select"><option value="-10">-10</option>
+<option value="-1">-1</option>
 <option value="-0.1">-0.1</option>
 <option value="0" selected="">0</option>
 <option value="0.1">0.1</option>
-<option value="1">1</option></select>
+<option value="1">1</option>
+<option value="10">10</option></select>
 <script type="application/json" data-for="num_intercept4" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
 </div>
 </div>
@@ -563,13 +443,13 @@ ul.task-list li input[type="checkbox"] {
 <button id="refresh4" type="button" class="btn btn-default action-button">New simulation</button>
 </div>
 <div class="cell-output-display">
-<div class="shiny-plot-output html-fill-item" id="lm2plot" style="width:100%;height:400px;"></div>
+<div class="shiny-plot-output html-fill-item" id="lm2plot" style="width:100%;height:500px;"></div>
 </div>
 </div>
 </section>
-<section id="how-did-i-make-these-interactive-demos" class="level2">
-<h2 class="anchored" data-anchor-id="how-did-i-make-these-interactive-demos">How did I make these interactive demos?</h2>
-<p>This R Markdown presentation is made interactive using Shiny, an R package. The viewers of the presentation can change the assumptions underlying what’s presented and see the results immediately.</p>
+<section id="how-did-i-create-these-interactive-app" class="level1">
+<h1>How did I create these interactive App?</h1>
+<p>This Quarto presentation is made interactive using Shiny, an R package. The viewers of the presentation can change the values of parameters underlying what’s computed and displayed and see the results immediately.</p>
 <p>To learn more, see <a href="http://rmarkdown.rstudio.com/authoring_shiny.html">Interactive Documents</a>.</p>
 <p>
 <script type="application/shiny-prerendered" data-context="server-start">
@@ -581,6 +461,8 @@ library(ggplot2)
 library(ggpmisc)
 library(ggpp)
 library(broom)
+library(ggbeeswarm)
+library(Hmisc)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -594,13 +476,21 @@ generate_samples <- function() {
 } 
 
 output$samplingPlot <- renderPlot({
-  ggplot(generate_samples(), aes(y, colour = group)) +
+  ggplot(generate_samples(), aes(y, colour = group, fill = group)) +
     geom_vline(xintercept = c(0, as.numeric(input$mean_treat)), 
                linetype = "dotted", color = "blue") +
     geom_rug() +
-    geom_density(fill = NA) +
+    switch(input$plot_type,
+           density = geom_density(linewidth = 1, alpha = 0.2),
+           histogram = geom_histogram(aes(y = after_stat(density)),
+                                      linewidth = 1, alpha = 0.2, 
+                                      position = "identity")) +
     annotate(x = 1.5, y = 0, label = input$refresh, alpha = 0, geom = "text") +
-    scale_x_continuous(limits = function(x) {x + (diff(x) * 0.1) * c(-1,1)}) +
+#    scale_x_continuous(limits = function(x) {x + (diff(x) * 0.1) * c(-1,1)}) +
+    expand_limits(x = c(-input$expand_xlim, input$expand_xlim + as.numeric(input$mean_treat))) +
+    stat_group_counts(size = 6) +
+    labs(x = "Draws from two Normal distributions",
+         y = "Estimated density\n(Area for each group equal to one)") +
     theme_bw(20)
 })
 </script>
@@ -643,12 +533,30 @@ generate_data <- function() {
 
 output$replicationPlot <- renderPlot({
   ggplot(generate_data(), aes(x, y)) +
-    geom_point(alpha = 0.25) +
-    stat_summary(fun.data = "mean_se", color = "red") +
+    switch(input$plot_type2,
+           "dot plot" = geom_point(alpha = 0.25, size = 3),
+           "violin plot" = geom_violin(fill = "grey50", 
+                                       linewidth = 1, 
+                                       alpha = 0.2),
+           "beeswarm plot" = geom_beeswarm(color = "grey50"),
+           "box plot" = geom_boxplot(fill = "grey50", 
+                                     linewidth = 1, 
+                                     alpha = 0.2,
+                                     width = 0.2)) +
+    stat_summary(fun.data = "mean_se", color = "red",
+                 size = 1, linewidth = 1, alpha = 0.67) +
     geom_hline(yintercept = c(0, as.numeric(input$mean_treat2)), 
-               linetype = "dotted", color = "blue") +
-    stat_fit_tb(tb.type = "anova", size = 5) +
+               linetype = "dotted", color = "blue", linewidth = 1) +
+    stat_fit_tb(tb.type = "fit.anova", size = 5,
+                digits = 3,
+                p.digits = 4,
+                tb.params = c("Group" = 1, "Error" = 2),
+                tb.vars = c("Effect" = 1, "df" = 2, SS = 3,
+                            MS = 4, "italic(F)" = 5,
+                            "italic(P)" = 6),
+                parse = TRUE) +
     annotate(x = 1.5, y = 0, label = input$refresh2, alpha = 0, geom = "text") +
+    labs(x = "Group", y = "Observed values") +
     theme_bw(20)
 })
 
@@ -668,19 +576,19 @@ generate_data4 <- function() {
 output$lm2plot <- renderPlot({
       p <-
         ggplot(generate_data4(), aes(x, y)) +
-        geom_point() +
+        geom_point(alpha = 0.25) +
         geom_abline(intercept = as.numeric(input$num_intercept4), 
                     slope = as.numeric(input$num_slope4), 
-                    linetype = "dotted", color = "blue") +
-        geom_rug() +
-        geom_smooth(method = "lm", formula = y ~ x) +
+                    linetype = "dotted", color = "blue", linewidth = 1) +
+        geom_rug(alpha = 0.1) +
+        geom_smooth(method = "lm", formula = y ~ x, linewidth = 1) +
         scale_x_continuous(name = "Dose, x") +
         scale_y_continuous(name = "Response, y", expand = expansion(c(0.05, 0.21))) +
         annotate(x = 1.5, y = 0, label = input$refresh4, alpha = 0, geom = "text") +
         theme_bw(20)
       
       if (input$disp_equation4) {
-        p + stat_poly_eq(use_label(c("eq", "R2", "F", "P")), 
+        p + stat_poly_eq(use_label(c("eq", "R2", "F", "P", "n")), 
                          formula = y ~ x, parse = TRUE, size = 6, label.x = "center")
       } else {
         p + stat_fit_tb(label.x = "center", label.y = 1, size = 5)
@@ -717,15 +625,14 @@ ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
 </p>
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
-{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.12.4"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.7.5.1"]}]}]}
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.8.0"]}]}]}
 </script>
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70]}},"value":[{"type":"character","attributes":{},"value":["backports","base","broom","bslib","cachem","cli","colorspace","compiler","datasets","digest","dplyr","ellipsis","evaluate","fansi","fastmap","generics","ggplot2","ggpmisc","ggpp","glue","graphics","grDevices","grid","gtable","htmltools","htmlwidgets","httpuv","jquerylib","jsonlite","knitr","later","lattice","lifecycle","magrittr","MASS","Matrix","MatrixModels","memoise","methods","mime","munsell","pillar","pkgconfig","polynom","promises","purrr","quantreg","R6","Rcpp","rlang","rmarkdown","rstudioapi","sass","scales","shiny","SparseM","splines","stats","survival","tibble","tidyr","tidyselect","tools","utf8","utils","vctrs","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.4.1","4.4.0","1.0.5","0.5.1","1.0.8","3.6.1","2.1-0","4.4.0","4.4.0","0.6.33","1.1.3","0.3.2","0.23","1.0.5","1.1.1","0.1.3","3.4.4","0.5.5","0.5.5","1.6.2","4.4.0","4.4.0","4.4.0","0.3.4","0.5.7","1.6.2","1.6.12","0.1.4","1.8.7","1.45","1.3.1","0.22-5","1.0.4","2.0.3","7.3-60.1","1.6-3","0.5-3","2.0.1","4.4.0","0.12","0.5.0","1.9.0","2.0.3","1.4-1","1.2.1","1.0.2","5.97","2.5.1","1.0.11","1.1.2","2.25","0.15.0","0.4.7","1.2.1","1.7.5.1","1.81","4.4.0","4.4.0","3.5-7","3.2.1","1.3.0","1.2.0","4.4.0","1.2.4","4.4.0","0.6.4","2.5.2","0.41","1.8-4","2.3.7"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86]}},"value":[{"type":"character","attributes":{},"value":["backports","base","base64enc","beeswarm","broom","bslib","cachem","checkmate","cli","cluster","colorspace","compiler","data.table","datasets","digest","dplyr","ellipsis","evaluate","fansi","fastmap","foreign","Formula","generics","ggbeeswarm","ggplot2","ggpmisc","ggpp","glue","graphics","grDevices","grid","gridExtra","gtable","Hmisc","htmlTable","htmltools","htmlwidgets","httpuv","jquerylib","jsonlite","knitr","later","lattice","lifecycle","magrittr","MASS","Matrix","MatrixModels","memoise","methods","mime","munsell","nnet","pillar","pkgconfig","polynom","promises","purrr","quantreg","R6","Rcpp","rlang","rmarkdown","rpart","rstudioapi","sass","scales","shiny","SparseM","splines","stats","stringi","stringr","survival","tibble","tidyr","tidyselect","tools","utf8","utils","vctrs","vipor","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.4.1","4.3.2","0.1-3","0.4.0","1.0.5","0.5.1","1.0.8","2.3.0","3.6.1","2.1.4","2.1-0","4.3.2","1.14.8","4.3.2","0.6.33","1.1.4","0.3.2","0.23","1.0.5","1.1.1","0.8-85","1.2-5","0.1.3","0.7.2","3.4.4","0.5.5","0.5.5","1.6.2","4.3.2","4.3.2","4.3.2","2.3","0.3.4","5.1-1","2.4.2","0.5.7","1.6.2","1.6.12","0.1.4","1.8.7","1.45","1.3.1","0.22-5","1.0.4","2.0.3","7.3-60","1.6-3","0.5-3","2.0.1","4.3.2","0.12","0.5.0","7.3-19","1.9.0","2.0.3","1.4-1","1.2.1","1.0.2","5.97","2.5.1","1.0.11","1.1.2","2.25","4.1.21","0.15.0","0.4.7","1.2.1","1.8.0","1.81","4.3.2","4.3.2","1.8.1","1.5.1","3.5-7","3.2.1","1.3.0","1.2.0","4.3.2","1.2.4","4.3.2","0.6.4","0.4.5","2.5.2","0.41","1.8-4","2.3.7"]}]}]}
 </script>
 <!--/html_preserve-->
-</section>
 </section>
 
 </main>

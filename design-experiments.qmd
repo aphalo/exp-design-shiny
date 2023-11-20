@@ -1,8 +1,9 @@
 ---
 title: "Design of Experiments"
-subtitle: "Principles explained"
+subtitle: "Playing with numbers"
 author: "Pedro J. Aphalo"
 date: "2023-11-19"
+date-modified: "2023-11-20"
 format: html
 server: shiny
 ---
@@ -16,133 +17,43 @@ library(ggplot2)
 library(ggpmisc)
 ```
 
-# Introductions
-
-## Introductions: Who are we?
-
-- Name
-- Where you come from
-- Field of study
-- Why are you interested in the course?
-- _etc._
-
-# Aims of design of experiments
-
-## Discussion
-
-- Why is design of experiments a sub-discipline of Statistics?
-
-- What do we aim at when we design an experiment?
-
-- What could be the differences between design and planning of experiments?
-
-- After this talk, you will design some experiments working in groups.
-
-## The aims of design of experiments
-
-**Validity**
-
-- The assumptions needed for a valid data analysis must be fulfilled.
-
-**Efficiency**
-
-- The amount and quality of information obtained with a given effort should be maximized.
-
-**Range of validity**
-
-- The data obtained should be representative for the whole scope of intended use of the acquired information (spatial, temporal, genotypic `space').
-
-## Validity: Assumptions
-
-- Assumptions are never "TRUE", but they can sometimes be close enough to being fulfilled.
-- All data analysis procedures depend on some assumptions.
-- Some assumptions are fundamental.
-- Additional assumptions may be required by certain procedures for data analysis.
-- The fewer assumptions made, the more robust are the conclusions obtained.
-
-## Why is bias a problem?
-
-- Bias can be completely confounded with treatment effects.
-- It cannot be measured within an experiment and it cannot be diagnosed based on the collected data.
-- There is no statistical procedure that can rescue or even identify this problem.
-- Bias due to lack of randomization or due to _"subjective randomization"_ or systematic measuring protocols results in _biased (bad) data_ leading to _wrong conclusions_ and **unrepeatable experiments**!
-
-## Avoiding bias
-
-- Randomization of treatment assignment.
-- Randomization of measurement sequences.
-- Randomization of operator assignment.
-- When source of variation is known using restricted randomization (blocks)...
-- ... or quantifying the external cause of the variation for each observation (covariates).
-
-## Detecting accidental bias
-
-- Most effective way is to have the whole study replicated independently by other labs.
-- We can also go quite far by replication in time by same research group if care is taken so that the same "hidden" disturbances are not likely to repeat.
-
-## Irreproducibility of research results
-
-- Sure ways of compromising reproducibility:
-    * consider interdependent observations as replicates ("pseudo-replication"),
-    * add replicates until effects are significant,
-    * delete apparent outliers until significance is reached ("cherry picking"),
-    * choose for publication the "best" replicate from a series of replications of an experiment ("cherry picking"),
-    * not reporting methods in detail, including problems encountered,
-    * making assumptions that are not tenable or are not validated.
-- this is because statistical tests and _p_-values they return are invalidated by bias.
-
-## Reproducibility of research results
-
-- Good ways of avoiding gross irreproducibility:
-    * keep in mind that objective decision-making is not automatic.
-    * avoid "wanting" a certain outcome (not getting in love with an idea).
-    * use valid designs and protocols in your experiments.
-    * understand the principles of experimental design and always follow them (avoid short cuts).
-   
-## Real pseudoreplication example
-
-Two ANOVAs of the same anatomical data. Response is stomatal density.
-Exciting results with pseudo-replication! (leaves as replicates)
-
-|Effect |	Df  |	Sum Sq	 | Mean Sq| F value |	Pr(>F)|
-|:------|----:|---------:|--------:|--------:|-----:|
-filter	| 5 |	28900	| 5773 | 3.14 |	0.0090 |
-block	| 2	| 24600	| 12292	| 6.69	| 0.0015 |
-Residuals	| **208**	| 381914 | 1836	| |
-
-## Real pseudoreplication example
-
-Two ANOVAs of the same anatomical data. Response is stomatal density.
-Boring results with valid analysis! (plots as replicates)
-
-| Effect | Df | Sum Sq | Mean Sq | F value | Pr(>F) |
-|:------|----:|---------:|--------:|--------:|-----:|
-| filter | 5 | 1560 | 312 | 0.395 | 0.84 |
-| block | 2 | 3340 | 1668 | 2.106 | 0.17 |
-| Residuals | **10** | 7920 | 792	 |  |
-
 # Simulated experiments
 
-## Introduction
+- Generating artificial data by random sampling of a theoretical density distribution, here the Normal distribution, we can simulate different experiments to learn how  outcomes of real experiments depend on how we design them.
 
-- We will use demonstrations that run interactively through a web browser interface. 
-- Today we will _play_ with simulated experiments.
-- Data are simulated by drawing random samples from the Normal distribution.
+- We will use "Apps" that run interactively through a web browser interface, within this page.
 
-## How do sampled data look as population parameters change?
+- Today you will learn broad patterns, and we will worry later in the course about the details.
 
-In these simulations:
+- The idea is for you to start developing an understanding of how to interpret results from data analysis, as well as of gauging by looking at plot very roughly what to expect.
 
-- The mean of the Control distribution is kept at zero.
+- In some cases parameter estimates and results from significance tests are shown. The main point today is not to understand them in detail, but do pay attention how estimates for the values of the parameters vary in succesive simulations sampled using exactly the same settings.
+
+# 1. How do sampled data look as population parameters change?
+
+In this App, you can change settings related to the simulated data:
+
+- The mean of the Control Normal distribution is constant at zero.
 - You can choose the value of the mean for Treatment.
-- You can choose the value of the standard deviation used.
+- You can choose the value of the standard deviation (the same value is used for Control and Treatment).
 - You can choose the size of samples ($\approx$ number of replicates).
-- The plot shows: simulated observations as rug plots on the $x$ axis, _sample_ 
-  empirical distributions and the _population_ means as blue vertical lines.
-- **To do:** Run the simulation multiple times for each set of values you set for the
-  population parameters.
 
-## Simulation experiment: data
+You can also change settings related to how the outcomes of the simulations are displayed:
+
+- The type of plot:
+  a.  "density" shows simulated observations as rug plots on the $x$ axis, fitted _sample_ 
+  empirical distributions density functions and the _population_ means (the settings above) as blue vertical lines.
+  b.  "histogram" shows histograms instead of the fitted density function.
+- The minimum limits of the x-axis, which makes it easier to compare simulations using different settings for standard deviation.
+
+- **To do:** Run **15** or more simulations with the same settings.
+    * observe how the sample mean and sd change when you:
+- Keep constant the standard deviation of the populations sampled.
+    * change the Treatment effect size.
+- Keep the Treatment effect size constant.
+    * change the standard deviation of the populations sampled.
+- Keep the Treatment effect size and the standard deviation constant.
+    * change number of replicates.
 
 ```{r}
 #| context: setup
@@ -150,17 +61,25 @@ library(ggplot2)
 library(ggpmisc)
 library(ggpp)
 library(broom)
+library(ggbeeswarm)
+library(Hmisc)
 ```
 
 ```{r sampling1, cache=FALSE}
 selectInput("mean_treat", label = "Mean of 'Treatment':",
             choices = c(0.001, 0.01, 0.1, 1, 10, 100), selected = 10)
 
+sliderInput("sd_adjust", label = "Standard deviation:",
+            min = 0.2, max = 10, value = 1, step = 0.2)
+
 selectInput("n_replicates", label = "Number of replicates:",
             choices = c(10, 20, 40, 100, 1000, 10000), selected = 100)
 
-sliderInput("sd_adjust", label = "Standard deviation:",
-            min = 0, max = 10, value = 1, step = 0.2)
+selectInput("plot_type", label = "Plot type:",
+            choices = c("density", "histogram"), selected = "density")
+
+sliderInput("expand_xlim", label = "x-axis minimum limits:",
+            min = 0, max = 50, value = 40, step = 1)
 
 actionButton("refresh", "New simulation")
 
@@ -179,21 +98,31 @@ generate_samples <- function() {
 } 
 
 output$samplingPlot <- renderPlot({
-  ggplot(generate_samples(), aes(y, colour = group)) +
+  ggplot(generate_samples(), aes(y, colour = group, fill = group)) +
     geom_vline(xintercept = c(0, as.numeric(input$mean_treat)), 
                linetype = "dotted", color = "blue") +
     geom_rug() +
-    geom_density(fill = NA) +
+    switch(input$plot_type,
+           density = geom_density(linewidth = 1, alpha = 0.2),
+           histogram = geom_histogram(aes(y = after_stat(density)),
+                                      linewidth = 1, alpha = 0.2, 
+                                      position = "identity")) +
     annotate(x = 1.5, y = 0, label = input$refresh, alpha = 0, geom = "text") +
-    scale_x_continuous(limits = function(x) {x + (diff(x) * 0.1) * c(-1,1)}) +
+#    scale_x_continuous(limits = function(x) {x + (diff(x) * 0.1) * c(-1,1)}) +
+    expand_limits(x = c(-input$expand_xlim, input$expand_xlim + as.numeric(input$mean_treat))) +
+    stat_group_counts(size = 6) +
+    labs(x = "Draws from two Normal distributions",
+         y = "Estimated density\n(Area for each group equal to one)") +
     theme_bw(20)
 })
 ```
 
 
-## Sample summaries (mean and standard deviation)
+# 2. Sample summaries
 
-- **To do:** For each condition run **15** or more simulations.
+Here you should pay attention to the difference between the mean of the Normal population from which the sample was drawn and the mean estimated from the sample. You should also pay attention to the difference between the standard deviation of the Normal population from which the sample was drawn and the standard deviation estimated from the sample.
+
+- **To do:** Run **15** or more simulations with the same settings.
     * observe how the sample mean and sd change when you:
 - Keep constant the standard deviation of the populations sampled.
     * change the Treatment effect size.
@@ -201,8 +130,8 @@ output$samplingPlot <- renderPlot({
     * change the standard deviation of the populations sampled.
 - Keep the Treatment effect size and the standard deviation constant.
     * change number of replicates.
-
-## Simulation experiment: sample summaries
+    
+You can next select to have the _t_-test shown, and repeat the exercise above paying attention to whether the conclusion you would draw from the _t_-test vary among simulations done using the same settings.
 
 ```{r summaries1, cache=FALSE}
 selectInput("mean_treat1", label = "Mean of 'Treatment':",
@@ -212,7 +141,7 @@ selectInput("n_replicates1", label = "Number of replicates:",
             choices = c(3, 5, 10, 20, 40, 100, 1000, 10000), selected = 10)
 
 sliderInput("sd_adjust1", label = "Standard deviation:",
-            min = 0, max = 10, value = 1, step = 0.2)
+            min = 0.2, max = 10, value = 1, step = 0.2)
 
 checkboxInput("disp_ttest", label = "t-test", value = FALSE)
 
@@ -248,19 +177,21 @@ output$summaries <- renderPrint({
 
 ```
 
-## Simulation experiment: ANOVA
+# 3. Simulation experiment: ANOVA
 
 - **To do:** For each condition run **15** or more simulations.
     * consider if a non-significant _p_-value demonstrate lack of treatment effect or not.
+- Keep constant the standard deviation of the populations sampled.
+    * change the Treatment effect size.
 - Keep the Treatment effect size constant.
-    * change number of replicates and see how this affects the _p_-value and the plotted standard error.
+    * change number of replicates and see how this affects the _p_-value and the plotted standard error. (In this case you will need to use different plot types for different numbers of replicates.) 
 - Keep the Treatment effect size constant.
     * change the standard deviation of the populations sampled.
     
-- What can you conclude from a significant _p_-value?
+**In the plot the error bars show mean plus and minus one standard error.**
+    
+- What can you conclude from a significant _P_-value?
 - Can you conclude something more than "significant effect"?
-
-## Simulation experiment: ANOVA
 
 ```{r replication1, cache=FALSE}
 selectInput("mean_treat2", label = "Mean of 'Treatment':",
@@ -270,11 +201,17 @@ selectInput("n_replicates2", label = "Number of replicates:",
             choices = c(3, 5, 10, 20, 40, 100, 1000, 10000), selected = 10)
 
 sliderInput("sd_adjust2", label = "Standard deviation:",
-            min = 0, max = 10, value = 1, step = 0.2)
+            min = 0.2, max = 10, value = 1, step = 0.2)
 
 actionButton("refresh2", "New simulation")
 
-plotOutput("replicationPlot")
+selectInput("plot_type2", label = "Plot type:",
+            choices = c("dot plot", 
+                        "violin plot", 
+                        "beeswarm plot",
+                        "box plot"), selected = "beeswarm plot")
+
+plotOutput("replicationPlot", height = "500px")
 ```
 
 ```{r replication2, cache=FALSE}
@@ -290,21 +227,39 @@ generate_data <- function() {
 
 output$replicationPlot <- renderPlot({
   ggplot(generate_data(), aes(x, y)) +
-    geom_point(alpha = 0.25) +
-    stat_summary(fun.data = "mean_se", color = "red") +
+    switch(input$plot_type2,
+           "dot plot" = geom_point(alpha = 0.25, size = 3),
+           "violin plot" = geom_violin(fill = "grey50", 
+                                       linewidth = 1, 
+                                       alpha = 0.2),
+           "beeswarm plot" = geom_beeswarm(color = "grey50"),
+           "box plot" = geom_boxplot(fill = "grey50", 
+                                     linewidth = 1, 
+                                     alpha = 0.2,
+                                     width = 0.2)) +
+    stat_summary(fun.data = "mean_se", color = "red",
+                 size = 1, linewidth = 1, alpha = 0.67) +
     geom_hline(yintercept = c(0, as.numeric(input$mean_treat2)), 
-               linetype = "dotted", color = "blue") +
-    stat_fit_tb(tb.type = "anova", size = 5) +
+               linetype = "dotted", color = "blue", linewidth = 1) +
+    stat_fit_tb(tb.type = "fit.anova", size = 5,
+                digits = 3,
+                p.digits = 4,
+                tb.params = c("Group" = 1, "Error" = 2),
+                tb.vars = c("Effect" = 1, "df" = 2, SS = 3,
+                            MS = 4, "italic(F)" = 5,
+                            "italic(P)" = 6),
+                parse = TRUE) +
     annotate(x = 1.5, y = 0, label = input$refresh2, alpha = 0, geom = "text") +
+    labs(x = "Group", y = "Observed values") +
     theme_bw(20)
 })
 
 ```
 
-## Simulation experiment: linear regression
+# 4. Simulation experiment: linear regression
 
 - **To do:** For each condition run **15** or more simulations.
-    * observe how statistical significance and $R^2$ very when you:
+    * observe how statistical significance and $R^2$ vary when you:
 - Keep constant the standard deviation of the populations sampled.
     * change the slope size.
     * change the intercept size.
@@ -313,11 +268,9 @@ output$replicationPlot <- renderPlot({
 - Keep the Treatment effect size and the standard deviation constant.
     * change number of replicates.
 
-## Simulation experiment: linear regression
-
 ```{r lm2a, cache=FALSE}
 selectInput("num_intercept4", label = "Intercept:",
-            choices = c(-1, -0.1, 0, 0.1, 1), selected = 0)
+            choices = c(-10, -1, -0.1, 0, 0.1, 1, 10), selected = 0)
 
 selectInput("num_slope4", label = "Slope of resp. to x:",
             choices = c(-1, -0.1, 0, 0.1, 1), selected = 0.1)
@@ -332,7 +285,7 @@ checkboxInput("disp_equation4", label = "Equation", value = TRUE)
 
 actionButton("refresh4", "New simulation")
 
-plotOutput("lm2plot")
+plotOutput("lm2plot", height = "500px")
 ```
 
 ```{r lm2b, cache=FALSE}
@@ -350,19 +303,19 @@ generate_data4 <- function() {
 output$lm2plot <- renderPlot({
       p <-
         ggplot(generate_data4(), aes(x, y)) +
-        geom_point() +
+        geom_point(alpha = 0.25) +
         geom_abline(intercept = as.numeric(input$num_intercept4), 
                     slope = as.numeric(input$num_slope4), 
-                    linetype = "dotted", color = "blue") +
-        geom_rug() +
-        geom_smooth(method = "lm", formula = y ~ x) +
+                    linetype = "dotted", color = "blue", linewidth = 1) +
+        geom_rug(alpha = 0.1) +
+        geom_smooth(method = "lm", formula = y ~ x, linewidth = 1) +
         scale_x_continuous(name = "Dose, x") +
         scale_y_continuous(name = "Response, y", expand = expansion(c(0.05, 0.21))) +
         annotate(x = 1.5, y = 0, label = input$refresh4, alpha = 0, geom = "text") +
         theme_bw(20)
       
       if (input$disp_equation4) {
-        p + stat_poly_eq(use_label(c("eq", "R2", "F", "P")), 
+        p + stat_poly_eq(use_label(c("eq", "R2", "F", "P", "n")), 
                          formula = y ~ x, parse = TRUE, size = 6, label.x = "center")
       } else {
         p + stat_fit_tb(label.x = "center", label.y = 1, size = 5)
@@ -370,9 +323,9 @@ output$lm2plot <- renderPlot({
     })
 ```
 
-## How did I make these interactive demos?
+# How did I create these interactive App?
 
-This R Markdown presentation is made interactive using Shiny, an R package. The viewers of the presentation can change the assumptions underlying what's presented and see the results immediately. 
+This Quarto presentation is made interactive using Shiny, an R package. The viewers of the presentation can change the values of parameters underlying what's computed and displayed and see the results immediately. 
 
 To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
 
